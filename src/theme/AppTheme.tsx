@@ -5,3 +5,7 @@ export const theme = StyleSheet.create({
     marginHorizontal: 20,
   },
 });
+
+export const Colors = {
+  primary: '#5856D6',
+};

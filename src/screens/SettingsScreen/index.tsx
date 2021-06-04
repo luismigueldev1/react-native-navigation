@@ -12,7 +12,7 @@ export default function SettingsScreen({navigation}: Props) {
       <Text>Settings Screen</Text>
       <Button
         title="Volver a home"
-        onPress={() => navigation.navigate('StackNavigator')}
+        onPress={() => navigation.navigate('Tabs')}
       />
     </View>
   );

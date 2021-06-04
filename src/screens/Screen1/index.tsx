@@ -2,7 +2,9 @@ import {DrawerScreenProps} from '@react-navigation/drawer';
 //import {StackScreenProps} from '@react-navigation/stack';
 import React, {useEffect} from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
-import {theme} from '../../theme/AppTheme';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {Colors, theme} from '../../theme/AppTheme';
 
 //interface Props extends StackScreenProps<any, any> {}
 interface Props extends DrawerScreenProps<any, any> {}
@@ -11,7 +13,9 @@ export default function Screen1({navigation}: Props) {
   useEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
-        <Button title="menu" onPress={() => navigation.toggleDrawer()} />
+        <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+          <Icon name="menu-outline" color={Colors.primary} size={35} />
+        </TouchableOpacity>
       ),
     });
   }, []);

@@ -8,13 +8,15 @@ import {
 import SettingsScreen from '../screens/SettingsScreen';
 import {StackNavigator} from './StackNavigator';
 import {Image, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {Tabs} from './BottomTabNavigator';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Drawer = createDrawerNavigator();
 
 export const CustomDrawerNavigator = () => {
   return (
     <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
-      <Drawer.Screen name="StackNavigator" component={StackNavigator} />
+      <Drawer.Screen name="Tabs" component={Tabs} />
       <Drawer.Screen name="Settings" component={SettingsScreen} />
     </Drawer.Navigator>
   );
@@ -33,13 +35,23 @@ const DrawerContent = ({
       {/*Menu*/}
       <View style={styles.menuContainer}>
         <TouchableOpacity
-          style={styles.menuItem}
-          onPress={() => navigation.navigate('StackNavigator')}>
+          style={{
+            ...styles.menuItem,
+            flexDirection: 'row',
+            alignItems: 'center',
+          }}
+          onPress={() => navigation.navigate('Tabs')}>
+          <Icon name="compass-outline" size={23} color="black" />
           <Text style={styles.menuItemText}> Navegación </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.menuItem}
+          style={{
+            ...styles.menuItem,
+            flexDirection: 'row',
+            alignItems: 'center',
+          }}
           onPress={() => navigation.navigate('Settings')}>
+          <Icon name="compass-outline" size={23} color="black" />
           <Text style={styles.menuItemText}> Ajustes</Text>
         </TouchableOpacity>
       </View>
@@ -58,8 +70,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   menuContainer: {
-    alignItems: 'center',
-    marginVertical: 30,
+    margin: 30,
   },
   menuItem: {
     marginBottom: 20,
