@@ -1,14 +1,17 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import TouchableIcon from '../../components/TouchableIcon';
 
 export default function Tab1Screen() {
   return (
     <View>
       <Text>Tab 1 Screen</Text>
-      <Text>
-        <Icon name="airplane-outline" size={80} color="#900" />
-      </Text>
+
+      <TouchableIcon iconName="airplane-outline" />
+      <TouchableIcon iconName="attach-outline" />
+      <TouchableIcon iconName="bonfire-outline" />
+      <TouchableIcon iconName="calculator-outline" />
+      <TouchableIcon iconName="images-outline" />
     </View>
   );
 }

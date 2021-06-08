@@ -1,6 +1,7 @@
 import {StackScreenProps} from '@react-navigation/stack';
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {AuthContext} from '../../context/AuthContext';
 import {RootStackParams} from '../../navigators/StackNavigator';
 
 // interface RouteParams {
@@ -12,11 +13,16 @@ interface Props extends StackScreenProps<RootStackParams, 'Persona'> {}
 
 export default function PersonaScreen({route, navigation}: Props) {
   const params = route.params;
+  const {setUsername} = useContext(AuthContext);
 
   useEffect(() => {
     navigation.setOptions({
       title: params.name,
     });
+  }, []);
+
+  useEffect(() => {
+    setUsername(params.name);
   }, []);
 
   return (
